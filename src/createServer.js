@@ -2,17 +2,17 @@
 
 const express = require('express');
 
-const { usersRouter } = require('./routes/usersRouter');
-const userService = require('./services/usersService');
+const { bridgeRouter } = require('./routes/bridgeRouter');
+const solanaService = require('./services/solanaService');
 
 function createServer() {
-  userService.init();
+  solanaService.init();
 
   const app = express();
 
   app.use(express.json());
 
-  app.use('/users', usersRouter);
+  app.use('/bridge', bridgeRouter);
 
   return app;
 }
